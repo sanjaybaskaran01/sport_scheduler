@@ -29,7 +29,7 @@ export class UserController {
   // api/user/login
   @UseGuards(LocalAuthGuard)
   @Post('login')
-  async login(@Request() req) {
-    return req.user;
+  async login() {
+    return { msg: 'Logged In' };
   }
 }
