@@ -4,5 +4,4 @@ model Sport_Schedule {
   start_time DateTime
   end_time DateTime
   date DateTime
-
 }
