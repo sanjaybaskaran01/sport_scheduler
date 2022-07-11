@@ -5,3 +5,10 @@ export interface CreateScheduleDto {
   end_time: Date;
   date: Date;
 }
+
+export interface ModifiedCreateScheduleDto
+  extends Omit<CreateScheduleDto, 'start_time' | 'end_time' | 'date'> {
+  start_time: string;
+  end_time: string;
+  date: string;
+}

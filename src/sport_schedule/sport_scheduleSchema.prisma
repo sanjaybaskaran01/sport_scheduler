@@ -2,6 +2,6 @@ model Sport_Schedule {
   id Int @id @default(autoincrement())
   name String
   start_time DateTime
-  end_time DateTime
+  end_time DateTime 
   date DateTime
 }
