@@ -1,73 +1,242 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+<!-- PROJECT LOGO -->
+<br />
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+  <!-- ![CRUD](./CRUD.png) -->
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+  <h3 align="center">Sports-Scheduler</h3>
 
-## Description
+  <p align="center">
+    Coding Exercise for NestJs Backend Developer
+    <br />
+    <a href="#markdown-header-usage"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
+- [Table of Contents](#table-of-contents)
+- [About The Project](#about-the-project)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+  - [Protected Routes](#protected-routes)
+  - [For Users](#for-users)
+      - [Parameters](#parameters)
+      - [Responses](#responses)
+      - [Parameters](#parameters-1)
+      - [Responses](#responses-1)
+      - [Parameters](#parameters-2)
+      - [Responses](#responses-2)
+  - [For Sport_Schedule](#for-sport_schedule)
+      - [Parameters](#parameters-3)
+      - [Responses](#responses-3)
+      - [Parameters](#parameters-4)
+      - [Responses](#responses-4)
+- [Meet the Developer](#meet-the-developer)
+
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+A simple NestJS REST application that schedules a sports slot with authenticated requests.
+
+
+### Built With
+
+* [Node.js](https://nodejs.org/en/)
+* [NestJS](https://nestjs.com/)
+* [Typescript](https://www.typescriptlang.org/)
+* [MySQL](https://www.mysql.com/)
+* [Docker](https://www.docker.com/)
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+
+* npm
 ```bash
-$ npm install
+npm install npm@latest -g
 ```
 
-## Running the app
-
+* yarn
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install -g yarn
+```
+* [Docker](https://github.com/docker/docker-install)
+### Installation
+ 
+1. Clone the repo
+```bash
+git clone https://github.com/sanjaybaskaran/sports-scheduler.git
 ```
 
-## Test
+2. Configure .env
+```env
+MYSQL_DATABASE = "flowace"
+MYSQL_ROOT_PASSWORD = "1234"
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+DATABASE_URL = "mysql://root:1234@localhost:3306/flowace"
+SESSION_SECRET = "PNb)G9U[0gu^CMe#[i'6Ib9<?|@Gnf"
 ```
 
-## Support
+4. Building Docker Containers
+```bash
+docker-compose up -d --build
+```
+5. Create Database Schema
+```bash
+yarn migrate
+``` 
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
+<!-- USAGE EXAMPLES -->
+## Usage
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Protected Routes
+`GET` `/api/user`<br>
+`GET` `/api/sport_schedule`<br>
+`POST` `/api/sport_schedule/create`
 
-## License
+### For Users
 
-Nest is [MIT licensed](LICENSE).
+------------------------------------------------------------------------------------------
+
+
+
+
+ <code>GET</code> <code><b>api/user</b></code> <code>(Lists all the users)</code>
+
+##### Parameters
+
+> | name              |  type     | data type      | description                         |
+> |-------------------|-----------|----------------|-------------------------------------|
+> None
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `{[<Array of User Data>]}`                                                         |
+> | `403`         | `application/json`                | `{"statusCode": 403,"message": "Forbidden resource","error": "Forbidden"}`                            |
+
+
+
+
+ <code>POST</code> <code><b>/api/user/create</b></code> <code>(Inserts a new User into database)</code>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | full_name | required  | string   | Full name of the user     |
+> | email     | required  | string   | email of the user         |
+> | password  | required  | string   | password of the user      |
+> 
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `{"id":"$user_id","full_name":"$user_fullName","email":"$user_email"}`                                |
+> | `400`         | `application/json`                | `{"statusCode": 400,"message": "User with that email already exists"}`                            |
+> | `500`         | `application/json`                | `{"status":500,"message":"Internal server error"}`                            |
+
+
+ <code>POST</code> <code><b>/api/user/login</b></code> <code>(Creates user session and logs the user in)</code>
+
+##### Parameters
+
+> | name              |  type     | data type      | description                         |
+> |-------------------|-----------|----------------|-------------------------------------|
+> | `email` |  `required` | `string`   | `email id of the user`        |
+> | `password` |  `required` | `string`   | `password of the user`        |
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `{{ "status": "success", "message": "Logged in" }`                                                         |
+> | `401`         | `application/json`                | `{"statusCode": 401,"message": "Unauthorized"}`                            |
+> | `500`         | `application/json`                | `{"status":"failure","message":"Internal Server error"}`                            |
+
+
+
+
+
+------------------------------------------------------------------------------------------
+
+### For Sport_Schedule
+
+------------------------------------------------------------------------------------------
+
+
+ <code>GET</code> <code><b>/api/sport_schedule</b></code> <code>(Lists all the sport schedule slots if authorized)</code>
+
+##### Parameters
+
+> | name              |  type     | data type      | description                         |
+> |-------------------|-----------|----------------|-------------------------------------|
+> None
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `{[<Array of slot data>]}`                                                         |
+> | `403`         | `application/json`                    | `{"statusCode": 403,"message": "Forbidden resource","error": "Forbidden"}`
+> | `500`         | `application/json`                | `{"status":"failure","message":"Internal server error"`                            |
+
+
+
+ <code>POST</code> <code><b>/api/sport_schedule/create</b></code> <code>(Inserts a new sport_schedule slot into database if authorized)</code>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | `name`      |  `required` | `string`   | `Name of the sport`  |
+> | `start_time`      |  `required` | `string`   | `Start time in the 24 hour format of "HH-mm"`  |
+> | `end_time`      |  `required` | `string`   | `End time in the 24 hour format of "HH-mm"`  |
+> | `date`      |  `required` | `string`   | `Date in the format of "10 July 2022"` |
+
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `{<Inserted slot data>}`                                |
+> | `400`         | `application/json`                | `{"statusCode":"400","message":<validation error message>}`                            |
+> | `403`         | `application/json`                    | `{"statusCode": 403,"message": "Forbidden resource","error": "Forbidden"}`
+> | `500`         | `application/json`                | `{"status":"failure","message":"Internal Server Error"}`                            |
+
+
+
+
+
+------------------------------------------------------------------------------------------
+
+## Meet the Developer
+
+<p> Hey everybody! My name is Sanjay Kumar Baskaran, I'm extremely grateful to have this opportunity to apply for this position. I learnt a lot while building this project 😀 </p>
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/sanjaybaskaran01"><img src="https://avatars.githubusercontent.com/u/72266283?v=4" width="100px;" alt=""/><br /><sub><b>Sanjay Baskaran</b></sub></a><br /></td>
+</tr>
+</table>
