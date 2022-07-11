@@ -89,8 +89,8 @@ export class SportScheduleService {
     const { start_time, end_time } = intersectingSlot;
     // Condition 1: If both start time and end time is same.
     if (
-      start_time === createScheduleDto.start_time &&
-      end_time === createScheduleDto.end_time
+      moment(start_time).isSame(moment(createScheduleDto.start_time)) &&
+      moment(end_time).isSame(moment(createScheduleDto.end_time))
     ) {
       throw new HttpException(
         'Identical Slot already exists',

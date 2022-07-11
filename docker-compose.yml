@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  nest-api:
+    container_name: nest-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+       mysql:
+        condition: service_healthy
+    env_file:
+      - .env
+    network_mode: host
+    
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    cap_add:
+      - SYS_NICE
+    restart: always
+    network_mode: host
+    volumes:
+      - ./database/data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+    
+
+volumes:
+  mysql:
+    name: nest-db
+
+
+

@@ -2,6 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { Prisma, User } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { ModifiedUserDto } from './dto';
 
 @Injectable()
 export class UserService {
@@ -28,9 +29,14 @@ export class UserService {
       );
     }
   }
+  // Omit<CreateScheduleDto
+  // extends Omit<CreateScheduleDto, 'start_time' | 'end_time' | 'date'> {
 
-  async findAll(): Promise<User[]> {
-    return await this.prisma.user.findMany();
+  async findAll(): Promise<ModifiedUserDto[]> {
+    const users = await this.prisma.user.findMany({
+      select: { id: true, email: true, full_name: true },
+    });
+    return users;
   }
 
   async findOne(email: string): Promise<User> {
